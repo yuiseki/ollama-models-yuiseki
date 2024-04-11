@@ -1,4 +1,4 @@
-FROM ./tmp/nekomata-7b-instruction.Q4_K_M.gguf
+FROM ./tmp/japanese-stablelm-instruct-gamma-7b.Q4_K_M.gguf
 
 TEMPLATE """{{ if .System }}### 指示:
 {{ .System }}

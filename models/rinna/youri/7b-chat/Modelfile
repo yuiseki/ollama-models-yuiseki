@@ -1,8 +1,15 @@
 FROM ./tmp/rinna-youri-7b-chat-q4_K_M.gguf
 
-TEMPLATE """ユーザー: {{ .Prompt }}
+TEMPLATE """{{ if .System }}設定:
+{{ .System }}
+
+{{ end }}
+ユーザー:
+{{ .Prompt }}
+
 システム: 
 """
 
+PARAMETER stop "設定:"
 PARAMETER stop "ユーザー:"
 PARAMETER stop "システム:"

@@ -1,8 +1,15 @@
 FROM ./tmp/rinna-youri-7b-instruction-q4_K_M.gguf
 
-TEMPLATE """ユーザー: {{ .Prompt }}
-システム: 
+TEMPLATE """{{ if .System }}### 指示:
+{{ .System }}
+
+{{ end }}
+### 入力:
+{{ .Prompt }}
+
+### 応答: 
 """
 
-PARAMETER stop "ユーザー:"
-PARAMETER stop "システム:"
+PARAMETER stop "### 指示:"
+PARAMETER stop "### 入力:"
+PARAMETER stop "### 応答:"

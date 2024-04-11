@@ -1,6 +1,7 @@
 FROM ./tmp/RakutenAI-7B-chat-q4_K_M.gguf
 
-TEMPLATE """USER: {{ .Prompt }}
+TEMPLATE """{{ if .System }}{{ .System }}{{ end }}
+USER: {{ .Prompt }}
 ASSISTANT: 
 """
 
