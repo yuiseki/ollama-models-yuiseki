@@ -1,0 +1,8 @@
+FROM ./tmp/nekomata-7b-instruction.Q4_K_M.gguf
+
+TEMPLATE """ユーザー: {{ .Prompt }}
+システム: 
+"""
+
+PARAMETER stop "ユーザー:"
+PARAMETER stop "システム:"
